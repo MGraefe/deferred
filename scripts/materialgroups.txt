@@ -1,0 +1,102 @@
+// scripts/materialgroups.txt
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+//material groups
+// specular:
+//		Specular intensity scaling, ranging from 0 to infinity
+//		Practical are values from 0 to 4 or so
+// smoothness:
+//		Smoothness of the material, ranging from 0 to 1.
+//		affecs sharpness of the highlight, large values are for very smooth surfaces (like plastic), which
+//		will have very sharp highlights, small values are for rough surfaces (like concrete), which will
+//		result in very broad highlights
+// friction:
+//		Affects physical behaviour, 0 means slippery as ice, 1 means glue
+// restitution:
+//		Affects physical behaviour, 0 means not bouncy at all (like playdough), 1 means bouncy like a bouncy ball
+
+
+"default"
+{
+	"specular" 		"0.5"
+	"smoothness" 	"0.2" 
+	"friction" 		"0.7"
+	"restitution" 	"0.35"
+}
+
+"grass"
+{
+	"specular"		"0.1"
+	"smoothness" 	"0.1"
+	"friction" 		"0.5"
+	"restitution" 	"0.1"
+}
+
+"concrete"
+{
+	"specular" 		"0.5"
+	"smoothness" 	"0.2"
+	"friction" 		"0.8"
+	"restitution" 	"0.4"
+}
+
+"wood"
+{
+	"specular" 		"0.7"
+	"smoothness" 	"0.1"
+	"friction" 		"0.6"
+	"restitution" 	"0.5"
+}
+
+"brick"
+{
+	"specular" 		"0.2"
+	"smoothness" 	"0.1"
+	"friction" 		"0.8"
+	"restitution" 	"0.4"
+}
+
+"metal"
+{
+	"specular" 		"1.0"
+	"smoothness" 	"0.9"
+	"friction" 		"0.3"
+	"restitution" 	"0.4"
+}
+
+"plaster"
+{
+	"specular" 		"0.5"
+	"smoothness" 	"0.1"
+	"friction" 		"0.7"
+	"restitution" 	"0.4"
+}
+
+"tile"
+{
+	"specular" 		"0.8"
+	"smoothness" 	"1.0"
+	"friction" 		"0.7"
+	"restitution" 	"0.35"
+}	
+
+"plastic"
+{
+	"specular" 		"0.8"
+	"smoothness" 	"0.6"
+	"friction" 		"0.9"
+	"restitution" 	"0.4"
+}
+
+"rubber"
+{
+	"specular" 		"0.2"
+	"smoothness" 	"0.1"
+	"friction" 		"0.9"
+	"restitution" 	"0.9"
+}

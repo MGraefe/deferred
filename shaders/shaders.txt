@@ -1,0 +1,122 @@
+// shaders/shaders.txt
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+"DeferredLighting"
+{
+	"PS" 	"PS_DeferredLighting.glsl"
+	"VS" 	"VS_BasicDeferred.glsl"
+}
+
+"DeferredPoint"
+{
+	"PS" 	"PS_DeferredPoint.glsl"
+	"VS" 	"VS_BasicDeferred.glsl"
+}
+
+"DeferredSpot"
+{
+	"PS" 	"PS_DeferredSpot.glsl"
+	"VS" 	"VS_BasicDeferred.glsl"
+}
+
+"DeferredSpotTex"
+{
+	"PS"	"PS_DeferredSpotTex.glsl"
+	"VS"	"VS_BasicDeferred.glsl"
+}
+
+"GBufferOut"
+{
+	"PS" 	"PS_GBufferOut.glsl"
+	"VS" 	"VS_GBufferOut.glsl"
+}
+
+"PointSprite"
+{
+	"PS" 	"PS_PointSprite.glsl"
+	"VS" 	"VS_PointSprite.glsl"
+}
+
+"ShadowMap"
+{
+	"PS" 	"PS_ShadowMap.glsl"
+	"VS" 	"VS_ShadowMap.glsl"
+}
+
+"Unlit"
+{
+	"PS" 	"PS_Unlit.glsl"
+	"VS" 	"VS_Unlit.glsl"
+}
+
+"Water"
+{
+	"PS" 	"PS_Water.glsl"
+	"VS" 	"VS_Water.glsl"
+}
+
+"WaterPretty"
+{
+	"PS"	"PS_WaterPretty.glsl"
+	"VS"	"VS_WaterPretty.glsl"
+}
+
+"Blur"
+{
+	"PS"	"PS_Blur.glsl"
+	"VS"	"VS_Blur.glsl"
+}
+
+"Tonemap"
+{
+	"PS"	"PS_Tonemap.glsl"
+	"VS"	"VS_Unlit.glsl"
+}
+
+"BloomComplete"
+{
+	"PS"	"PS_BloomComplete.glsl"
+	"VS"	"VS_Unlit.glsl"
+}
+
+"Brightpass"
+{
+	"PS"	"PS_Brightpass.glsl"
+	"VS"	"VS_Unlit.glsl"
+}
+
+"Exposure"
+{
+	"PS"	"PS_Exposure.glsl"
+	"VS"	"VS_Unlit.glsl"
+}
+
+"ShadowMapVisualize"
+{
+	"PS"	"PS_ShadowMapVisualize.glsl"
+	"VS"	"VS_Unlit.glsl"
+}
+
+"Sky"
+{
+	"PS"	"PS_Sky.glsl"
+	"VS"	"VS_Sky.glsl"
+}
+
+"AntiAlias"
+{
+	"PS"	"PS_AA.glsl"
+	"VS"	"VS_AA.glsl"
+}
+
+"DepthCopy"
+{
+	"PS"	"PS_DepthCopy.glsl"
+	"VS"	"VS_Unlit.glsl"
+}

@@ -1,0 +1,10 @@
+// scripts/languages/english.rps
+// scripts/languages/english.rps
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+"#NewGame" 			"New Game""#JoinGame" 		"Join Game""#Options"			"Options""#QuitGame"			"Quit"

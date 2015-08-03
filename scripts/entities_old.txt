@@ -1,0 +1,193 @@
+// scripts/entities_old.txt
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+"@Angles"
+{
+	"angles"
+	{
+		"type" "ANGLE"
+		"init" "0 0 0"
+		"desc" "Rotation X Y Z, applied Z Y X."
+	}
+}
+
+"@Origin"
+{
+	"origin"
+	{
+		"type" "ORIGIN"
+		"init" "0 0 0"
+		"desc" "Entity's center in the World (X Y Z)"
+	}
+}
+
+"@Lightparams"
+{
+	"color"
+	{
+		"type" "COLOR"
+		"init" "255 255 255 200"
+		"desc" "<r g b brightness>, Main Color of the light; Valid Range: r,g,b € [0,255], brightness € [1,Infinity]"
+	}
+	
+	"constlinquad"
+	{
+		"type" "CONSTLINQUAD"
+		"init" "0 3 2"
+		"desc" "linear-constant-quadratic values for the lighting model. The Lighting Formula is: attent = 1 / (c + l*d + q*d*d)"
+	}
+	
+	"maxdist"
+	{
+		"type" "FLOAT"
+		"init" "-1"
+		"desc" "Maximum distance for this light, realized by the light-geometry. Produces hard-falloffs at the maximum size. -1 means use of the calculated maximum distance"
+	}
+}
+
+"world"
+{
+	"desc" "basic world"
+	"spritename" "icon_world"
+	"classtype" "WORLD"
+	
+	//Parameters
+	"filename"
+	{
+		"type" "FILE"
+		"init" ""
+		"desc" "The world-model"
+	}
+	
+	"skyname"
+	{
+		"type" "STRING"
+		"init" "sky1"
+		"desc" "Skybox name"
+	}
+	
+	"suntex"
+	{
+		"type" "FILE"
+		"init" "textures/sun.dds"
+		"desc" "sun texture"
+	}
+
+	"sunsize"
+	{
+		"type" "FLOAT"
+		"init" "0.05"
+		"desc" "sun size, in percent of the screen-size"
+	}
+}
+
+"light"
+{
+	"base" "@Origin, @Lightparams"
+	"desc" "A simple point light"
+	"spritename" "icon_light"
+	"classtype" "LIGHT"
+}
+
+"light_spot"
+{
+	"base" "@Origin, @Angles, @Lightparams"
+	"desc" "A simple spot light"
+	"spritename" "icon_spotlight"
+	"classtype" "SPOTLIGHT"
+	
+	//Parameters
+	"degrees"
+	{
+		"type" "STRING"
+		"init" "30"
+		"desc" "Spotlight focus angle"
+	}
+}
+
+"light_sun"
+{
+	"base" "@Origin, @Angles"
+	"desc" "Directional Sun Light with shadows. Currenty only one is supported."
+	"spritename" "light_sun"
+	"classtype" "SUNLIGHT"
+
+	//Parameters
+	"direction"
+	{
+		"type" "VECTOR"
+		"init" "0 -1 -1"
+		"desc" "Direction of the light. Changable by rotating the light"
+	}
+
+	"color"
+	{
+		"type" "COLOR"
+		"init" "255 255 255 1.0"
+		"desc" "<r g b brightness>, direct light color"
+	}
+
+	"specularColor"
+	{
+		"type" "COLOR"
+		"init" "255 255 255 1.0"
+		"desc" "<r g b factor>, specular highlight color/intensity"
+	}
+
+	"ambientMin"
+	{
+		"type" "COLOR"
+		"init" "30 30 30"
+		"desc" "<r g b>, minimum ambient color, applied at minimum sky-visibility"
+	}
+
+	"ambientMax"
+	{
+		"type" "COLOR"
+		"init" "30 30 30"
+		"desc" "<r g b>, minimum ambient color, applied at maximum sky-visibility"
+	}
+}
+
+"vehicle_respawn"
+{
+	"base"	"@Origin, @Angles"
+	"desc"	"Respawnpoint for cars."
+	"classtype"	"MODEL"
+	
+	//Parameters
+	"modelname"
+	{		
+		"type" "STRING"
+		"init" "models/uazik_ref.rpm"
+		"desc" "Model for representing the player's car"
+	}
+
+	"testparam"
+	{
+		"type" "STRING"
+		"init" "asdf"
+		"desc" "test"
+	}
+}
+
+"trigger"
+{
+	"base" "@Origin, @Angles"
+	"desc" "Simple trigger."
+	"classtype" "TRIGGER"
+
+	//Parameters
+	"verts"
+	{
+		"type" "STRING"
+		"init" "-5 -5 -5 -5 -5 5 -5 5 -5 -5 5 5 5 -5 -5 5 -5 5 5 5 -5 5 5 5"
+		//              |       |       |      |       |      |      |
+	}
+}

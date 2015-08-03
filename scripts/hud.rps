@@ -1,0 +1,182 @@
+// scripts/hud.rps
+// scripts/hud.rps
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+// This file defines our hud.
+// All positions are relative to their parents.
+// Positions can be relative to the right/bottom border of the parent (default is left/top):
+// "position" "r10 b10" means the element is positioned relative to the bottom-right corner of the parent.
+// Note that "position" can also have a z-component which is also relative to the parents z-ordering.
+// Negative size means whole screen size
+
+
+"HUD_PARENT" //These correspond to DECLARE_GUI_ELEMENT inside the cpp code
+{
+
+"name" 		"hud_parent" //Feel free to choose some
+"position" 	"0 0"
+"size"		"r0 b0"
+
+"anchors"
+{
+	"left" "left"
+	"top" "top"
+	"right" "right"
+	"bottom" "bottom"
+}
+
+
+	"HUD_SPEED_DISPLAY"
+	{
+		"name"		"hud_speed_display"
+		"position" 	"r160 b110"
+		"size"		"150 100"
+		
+		"anchors"
+		{
+			"left" "right"
+			"top" "bottom"
+			"right" "right"
+			"bottom" "bottom"
+		}
+		
+		"text1_pos"	"30 100 0"
+		"text2_pos"	"30 70 0"
+		"text3_pos" "30 30 0"
+	}
+	
+	"TEXT"
+	{
+		"name"		"hud_text_by_me"
+		"position" 	"10 b10"
+		"size"		"0 0"
+		"font"		"FontSmallText"
+		"text"		"By Marius Graefe"
+		
+		"anchors"
+		{
+			"top" "bottom"
+			"bottom" "bottom"
+		}
+	}
+	
+	"HUD_PING_DISPLAY"
+	{
+		"name"	"hud_ping_display"
+		"position"	"r455 5"
+		"size"	"450 20"
+		
+		"anchors"
+		{
+			"left" "right"
+			"top" "top"
+			"right" "right"
+			"bottom" "top"
+		}
+		
+		"text_pos"	"10 15 0"
+	}
+	
+	"HUD_SCOREBOARD"
+	{
+		"name"	"hud_scoreboard"
+		"position" "100 100"
+		"size" "r100 b100"
+		"text_pos" "20 20 0"
+		
+		"anchors"
+		{
+			"right" "right"
+			"bottom" "bottom"
+		}
+	}
+}
+
+
+"GUI_REALTIMEDEBUGINTERFACE"
+{
+	"name" 		"gui_realtimedebuginterface"
+	"position" 	"0 0"
+	"size"		"r0 b0"
+	"text_pos"	"5 15"
+	"text_spacing" "15.0"
+	"text_cooldown" "2.0"
+	
+	"anchors"
+	{
+		"left" "left"
+		"top" "top"
+		"right" "right"
+		"bottom" "bottom"
+	}
+}
+
+
+"HUD_PARENT"
+{
+	"name" 		"mm_parent"
+	"position" 	"0 0"
+	"size"		"r0 b0"
+
+	"anchors"
+	{
+		"left" "left"
+		"top" "top"
+		"right" "right"
+		"bottom" "bottom"
+	}
+	
+	"GUI_MAINMENU"
+	{
+		"name"		"mm_menu"
+		"position"	"100 b400"
+		"size"		"200 350"
+		"color_background" "0 0 0 80"
+		"anchors"
+		{
+			"top" 		"bottom"
+			"bottom" 	"bottom"
+		}
+		
+		"GUI_BUTTON"
+		{
+			"name" 		"mm_b_newgame"
+			"position" 	"50 50"
+			"text" 		"#NewGame"
+		}
+		
+		"GUI_BUTTON"
+		{
+			"name" 		"mm_b_joingame"
+			"position" 	"50 100"
+			"text" 		"#JoinGame"
+		}
+		
+		"GUI_BUTTON"
+		{
+			"name"		"mm_b_disconnect"
+			"position"	"50 150"
+			"text"		"#Disconnect"
+		}
+		
+		"GUI_BUTTON"
+		{
+			"name" 		"mm_b_options"
+			"position" 	"50 200"
+			"text" 		"#Options"
+		}
+		
+		"GUI_BUTTON"
+		{
+			"name" 		"mm_b_quitgame"
+			"position" 	"50 250"
+			"text" 		"#QuitGame"
+		}
+	}
+}

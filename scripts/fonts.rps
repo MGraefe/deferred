@@ -1,0 +1,30 @@
+// scripts/fonts.rps
+// scripts/fonts.rps
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+
+//Font list
+
+"FontNormalText"
+{
+	"face"		"DejaVuSans"
+	"height"	"14"
+}
+
+"FontSmallText"
+{
+	"face"		"DejaVuSans"
+	"height"	"11"
+}
+
+"FontLargeText"
+{
+	"face"		"DejaVuSans"
+	"height"	"30"
+}

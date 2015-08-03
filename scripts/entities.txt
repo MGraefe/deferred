@@ -1,0 +1,331 @@
+// scripts/entities.txt
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+"@Name"
+{
+	"keyvals"
+	{
+		"name" "[STRING] [] [Name of the entity.]"
+	}
+
+	"inputs"
+	{
+		"SetName" "Set the entities name (param: new name)"
+	}
+}
+
+"@Origin"
+{
+	"keyvals"
+	{
+		"origin" "[ORIGIN] [0 0 0] [Entity's center in the World (X Y Z)]"
+	}
+
+	"inputs"
+	{
+		"SetOrigin" "Set the entities origin (param: x y z)"
+	}
+}
+
+"@Base"
+{
+	"base" "@Name, @Origin"
+	"inputs"
+	{
+		"Kill" "Delete the entity"
+	}
+
+	"outputs"
+	{
+		"OnDestroy" "Fired when the entity is removed"
+	}
+}
+
+"@Angles"
+{
+	"keyvals"
+	{
+		"angles" "[ANGLE] [0 0 0] [Rotation X Y Z, applied Z Y X.]"
+	}
+
+	"inputs"
+	{
+		"SetAngles" "Set the entities angles (param: x y z)"
+	}
+}
+
+"@Toggle"
+{
+	"keyvals"
+	{
+		"enabled" "[BOOL] [1] [is the entity enabled?]"
+	}
+	
+	"inputs"
+	{
+		"Enable" "Enable the entity"
+		"Disable" "Disable the entity"
+		"Toggle" "Switch between enabled/disabled"
+	}
+}
+
+"@Lightparams"
+{
+	"base" "@Base"
+	"keyvals"
+	{
+		"color" 		"[COLOR] [255 255 255 200] [<r g b brightness>, Main Color of the light; Valid Range: r,g,b € \[0,255\], brightness € \[0, Infinity\]]"
+		"constlinquad" 	"[CONSTLINQUAD] [0 3 2] [linear-constant-quadratic values for the lighting model. The Lighting Formula is attent = 1 / (c + l*d + q*d*d)]"
+		"maxdist" 		"[FLOAT] [-1] [Maximum distance for this light, realized by the light-geometry. Produces hard-falloffs at the maximum size. -1 means use of the calculated maximum distance]"
+		"enabled"		"[BOOL] [1] [Light shining?]"
+	}
+
+	"inputs"
+	{
+		"SetColor" "Set the light color (param: r g b brightness)"
+		"SetConstLinQuad" "Set the light parameters (param: const lin quad)"
+		"SetMaxDist" "Set the maximum distance of the light (param: dist)"
+		"TurnOn" "Turn the light on"
+		"TurnOff" "Turn the light off"
+		"Toggle" "Toggle the light"
+	}
+
+	"outputs"
+	{
+		"OnTurnOn" "Triggered when the light is turned on (but not on map-load)"
+		"OnTurnOff" "Triggered when the light is turned off"
+		"OnToggle" "Triggered when the light is toggled on/off"
+	}
+}
+
+
+"world"
+{
+	"base" "@Base"
+	"desc" "basic world"
+	"spritename" "icon_world"
+	"classtype" "WORLD"
+	
+	"keyvals"
+	{
+		"filename" "[FILE] [] [The world-model]"
+		"skyname" "[STRING] [sky1] [Skybox name]"
+		"suntex" "[TEXTURE] [textures/sun.dds] [sun texture]"
+		"sunsize" "[FLOAT] [0.05] [sun size, in percent of the screen-size]"
+		"seaColorDark" 		"[COLOR] [0 0 30] [Dark color of the sea]"
+		"seaColorBright" 	"[COLOR] [0 0 30] [Bright color of the sea]"
+	}
+
+	"outputs"
+	{
+		"OnSpawn" "Triggered on map start"
+	}
+
+	"inputs"
+	{
+		"SetSunSize" "Set the sun's size (param: size)"
+	}
+}
+
+"fog_global"
+{
+	"base" "@Base, @Toggle"
+	"desc" "Global fog parameters"
+	"spritename" "fog_global"
+	"classtype" "FOG_GLOBAL"
+	
+	"keyvals"
+	{
+		"color" "[COLOR] [127 127 127] [Main color of the fog]"
+		"distance" "[FLOAT] [10000] [Distance at which the fog is maximal]"
+	}
+}
+
+"light"
+{
+	"base" "@Lightparams"
+	"desc" "A simple point light"
+	"spritename" "icon_light"
+	"classtype" "LIGHT"
+}
+
+"light_spot"
+{
+	"base" "@Angles, @Lightparams"
+	"desc" "A simple spot light"
+	"spritename" "icon_spotlight"
+	"classtype" "SPOTLIGHT"
+	
+	//Parameters
+	"keyvals"
+	{
+		"degrees" "[STRING] [30] [Spotlight focus angle]"
+	}
+}
+
+"light_spot_tex"
+{
+	"base" "@Angles, @Lightparams"
+	"desc" "Spot light that projects a texture."
+	"spritename" "icon_spotlight"
+	"classtype" "SPOTTEXLIGHT"
+	
+	//Parameters
+	"keyvals"
+	{
+		"fov" "[FLOAT] [45] [Field of view in the y-axis of the light]"
+		"aspect" "[FLOAT] [1.0] [Aspect ratio]"
+		"filename" "[TEXTURE] [textures/no_icon.tga] [Texture to project]"
+	}
+}
+
+"light_sun"
+{
+	"base" "@Base, @Angles"
+	"desc" "Directional Sun Light with shadows. Currenty only one is supported."
+	"spritename" "light_sun"
+	"classtype" "SUNLIGHT"
+
+	"keyvals"
+	{
+		"direction" "[VECTOR] [0 -1 -1] [Direction of the light. Changable by rotating the light]"
+		"color" "[COLOR] [255 255 255 1.0] [<r g b brightness>, direct light color]"
+		"specularColor" "[COLOR] [255 255 255 1.0] [<r g b factor>, specular highlight color/intensity]"
+		"ambientMin" "[COLOR] [30 30 30] [<r g b>, minimum ambient color, applied at minimum sky-visibility]"
+		"ambientMax" "[COLOR] [30 30 30] [<r g b>, minimum ambient color, applied at maximum sky-visibility]"
+	}
+
+	"inputs"
+	{
+		"SetDirection" "Set the light's direction (param: x y z)"
+		"SetColor" "Set the light's color (param: r g b brightness)"
+		"SetSpecularColor" "Set the light's specular color (param: r g b factor)"
+		"SetAmbientMin" "Set the minimum ambient color (param: r g b)"
+		"SetAmbientMax" "Set the maximum ambient color (param: r g b)"
+	}
+}
+
+"vehicle_respawn"
+{
+	"base"	"@Base, @Angles"
+	"desc"	"Respawnpoint for cars."
+	"classtype"	"MODEL"
+	
+	"keyvals"
+	{
+		"modelname" "[STRING] [models/uazik_ref.rpm] [Model for representing the player's car]"
+		"initialSpawn" "[BOOL] [0] [Is this an initial spawn at the start-line?]"
+	}
+}
+
+"prop_physics"
+{
+	"base" "@Base, @Angles"
+	"desc" "Physically simulated 3D-Model"
+	"classtype" "MODEL"
+	"keyvals"
+	{
+		"modelname" "[STRING] [models/uazik_ref.rpm] [Filename of the model (.rpm)]"
+		"static" "[BOOL] [0] [Is this object static (does not move at all)?]"
+	}
+	
+	"inputs"
+	{
+		"Test" "Test this"
+	}
+}
+
+"trigger"
+{
+	"base" "@Base, @Angles"
+	"desc" "Simple trigger."
+	"classtype" "BLOCK"
+
+	"keyvals"
+	{
+		//"verts"	"[STRING] [-5 -5 -5 -5 -5 5 -5 5 -5 -5 5 5 5 -5 -5 5 -5 5 5 5 -5 5 5 5] [Vertex-coordinates]"
+		"width"		"[STRING] [15] [Width of the trigger-block]"
+		"height"	"[STRING] [10] [Height of the trigger-block]"
+		"depth"		"[STRING] [2] [Depth of the trigger-block]"
+		"material"	"[MATERIAL] [editor/trigger] [material filename]"
+		"textureScale" "[STRING] [1.0] [Scale of the texture/material]"
+	}
+	
+	"outputs"
+	{
+		"OnTrigger" "Fires when an entity first touches the trigger"
+	}
+}
+
+"logic_relay"
+{
+	"base" "@Base, @Toggle"
+	"desc" "Relay for the Input/Output system"
+	"classtype" "LOGIC"
+	"spritename" "logic_relay"
+	
+	"inputs"
+	{
+		"Trigger" "Triggers outputs of the relay"
+	}
+	
+	"outputs"
+	{
+		"OnTrigger" "Input function Trigger has been...well...triggered"
+	}
+}
+
+"logic_timer"
+{
+	"base" "@Base, @Toggle"
+	"desc" "Timer for the Input/Output system"
+	"classtype" "LOGIC"
+	"spritename" "logic_timer"
+	"keyvals"
+	{
+		"interval" "[FLOAT] [1.0] [Timing interval in seconds]"
+		"randomTime" "[FLOAT] [0.0] [The timing interval is interval +- randomTime]"
+	}
+	
+	"inputs"
+	{
+		"SetInterval" "Set the interval (param: time)"
+		"SetRandomTime" "Set the random time interval modifier (param: randomTime)"
+	}
+	
+	"outputs"
+	{
+		"OnTimer" "Timer has reached time"
+	}
+}
+
+"logic_laptimecounter"
+{
+	"base" "@Base"
+	"desc" "Validates laps and manages lap times"
+	"classtype" "LOGIC"
+	"spritename" "logic_relay"
+	
+	"keyvals"
+	{
+		"numCheckpoints" "[INT] [1] [Total number of checkpoints]"
+	}
+	
+	"inputs"
+	{	
+			"CheckpointPassed" "Checkpoint was passed by car (param: checkpoint id)"
+	}
+}
+
+"lightprobe"
+{
+	"base" "@Origin"
+	"desc" "Point at which the engine samples light for dynamic objects."
+	"classtype" "LOGIC"
+	"spritename" "lightprobe"
+}

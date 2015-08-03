@@ -1,0 +1,38 @@
+// scripts/gui_defaults.rps
+// scripts/gui_defaults.rps
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+"GUI_BUTTON"
+{
+	"size" "100 40"
+	"position"				"300 300"
+	
+	"color_background" 		"0 0 0 100"
+	"color_background_h" 	"63 104 223 170"
+	"color_background_p"	"132 154 221 255"
+	"color_border"			"31 89 255 170"
+	"color_border_h"		"31 89 255 200"
+	"color_border_p"		"31 89 255 255"
+	"color_text"			"255 255 255 230"
+	"color_text_h"			"255 255 255 230"
+	"color_text_p"			"0 0 0 230"	
+	
+	"border_width"			"2"
+	"text_font"				"FontNormalText"
+	"text"					"button"
+}
+
+
+"DYNAMIC_TEXT"
+{
+	"position"		"300 300"
+	"size"			"0 0"
+	"font"			"FontNormalText"
+	"text"			"Dynamic Text"
+}

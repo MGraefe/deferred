@@ -1,0 +1,49 @@
+// scripts/testscript.txt
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+
+//comment
+
+	//comment
+
+"key1"	"val1"
+//comment
+"key2"	"val2"
+	
+"group1"
+{
+	"subkey1" 	"subval1"
+	"subkey2" 	"subval2"
+	"subgroup1"
+	{
+		"subsubkey1" "subsubval1" //Comment
+		"subsubkey2" "subsubval2" //Comment
+	}
+	
+	"subgroup2" //Comment
+	{
+		"subsubkey3"	"subsubval3"
+		"subsubkey4"	"subsubval4"
+	}
+
+//COMMENT
+//COMMENT
+//COMMENT
+
+	"subgroup3"
+	{
+		"subgroup4"
+		{
+			"subsubsubkey1" "subsubsubval1"
+		}
+
+	}
+	
+	"subkey3" 	"subval3"
+}

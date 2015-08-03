@@ -1,0 +1,21 @@
+// scripts/languages.rps
+// scripts/languages.rps
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+"en_US"
+{
+	"name" "English"
+	"file" "languages/english.rps"
+}
+
+"de_DE"
+{
+	"name" "Deutsch"
+	"file" "languages/german.rps"
+}

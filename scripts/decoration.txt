@@ -1,0 +1,27 @@
+// scripts/decoration.txt
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+
+"test"
+{
+	"models/grass1.rpm"
+	{
+		"density" 	"1.3"
+		"randomness" 	"0.5"
+		"minScale"	"0.5"
+		"maxScale"	"1.1"
+	}
+
+	"models/grass1.rpm"
+	{
+		"density"	"0.075"
+		"randomness"	"0.75"
+		"minScale"	"1.8"
+		"maxScale"	"2.2"
+	}
+}

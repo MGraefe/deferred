@@ -1,0 +1,65 @@
+// scripts/car.rps
+// scripts/car.rps
+//----------------------------------
+// Deferred Source Code
+// Copyright (c) 2015 Marius Graefe
+// All rights reserved
+// Contact: deferred@mgraefe.de
+//----------------------------------
+
+//UNITS:
+//mass : [kg]
+//distance: [dm]
+//force: [N]
+
+
+"model" 	"models/uazik_chassis.rpm"
+"wheelmodel"	"models/uazik_wheel.rpm"
+
+//Measurements
+"AxisDistFront"		"12.5448"
+"AxisDistRear"		"12.6082"
+"AxisWidthFront"	"14.442"
+"AxisWidthRear"		"14.442"
+"AxisHeightOffsetFront"	"4.305"
+"AxisHeightOffsetRear"	"4.305"
+"WheelRadius"		"4.305"
+"WheelWidth"		"2.2"
+"CenterOfMassOffset"	"0.0 5.0 -0.0" //50 cm up, 30cm back
+
+"SteeringClamp"		"0.3" //0.3*90°
+"mass"			"1000" //in kg
+
+"MaxEngineForce"	"5000" //NOT USED, calculated by horsepower and rpm
+"MaxBreakingForce"	"400"
+
+"WheelFriction"		"2.6"
+
+//Suspension parameters:
+"SuspensionStiffness"	"30.0"
+"SuspensionDamping"		"0.5" //for relaxation [0.0, 1.0]
+"SuspensionCompression"	"0.2" //for compression  [0.0, 1.0]
+"SuspensionRestLength"	"1.0"
+"SuspensionMaxTravel"	"2.0"
+"SuspensionForce"		"3000"
+"SuspensionMaxForce"	"100000"
+
+"RollInfluence"		"0.2"
+
+//Engine parameters:
+"HorsePower"		"250"
+"MaxRpm"			"5000"
+"MinRpm"			"1000"
+"ShiftDownRpm"		"3000"
+"ShiftUpRpm"		"4800"
+"NumberOfGears"		"5"
+"Gear1Ratio"		"2.5"
+"Gear2Ratio"		"1.59"
+"Gear3Ratio"		"1.17"
+"Gear4Ratio"		"1.0"
+"Gear5Ratio"		"0.84"
+"AxleRatio"			"6.0"
+
+//air
+"cwValue"		"0.3"
+"faceSurface"	"2.5" //in meter^2
